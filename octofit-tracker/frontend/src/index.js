@@ -7,11 +7,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Set the backend API base URL from environment variable or fallback
-const codespaceName = process.env.REACT_APP_CODESPACE_NAME;
+// Dynamically set the backend API base URL for the codespace
+const codespaceName = process.env.REACT_APP_CODESPACE_NAME || window.location.hostname.split('-8000')[0];
 const protocol = window.location.protocol;
 const host = codespaceName ? `${protocol}//${codespaceName}-8000.app.github.dev` : '';
-process.env.REACT_APP_CODESPACE_URL = host;
+window.REACT_APP_CODESPACE_URL = host;
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,7 +20,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

@@ -12,10 +12,10 @@ import logo from './logo.svg';
 function App() {
   return (
     <Router>
-      <nav className="navbar navbar-expand-lg mb-4">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img src={logo} alt="Octofit Logo" className="octofit-logo" />
+            <img src={logo} alt="Octofit Logo" className="octofit-logo me-2" style={{height: 40}} />
             Octofit Tracker
           </Link>
           <div className="collapse navbar-collapse">
