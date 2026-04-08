@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const endpoint = `${window.REACT_APP_CODESPACE_URL}/api/teams/`;
+  const codespace = process.env.REACT_APP_CODESPACE_NAME;
+  const protocol = window.location.protocol;
+  const endpoint = `${protocol}//${codespace}-8000.app.github.dev/api/teams/`;
 
   useEffect(() => {
     console.log('Fetching teams from:', endpoint);

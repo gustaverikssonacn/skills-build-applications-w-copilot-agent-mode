@@ -7,11 +7,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Dynamically set the backend API base URL for the codespace
-const codespaceName = process.env.REACT_APP_CODESPACE_NAME || window.location.hostname.split('-8000')[0];
-const protocol = window.location.protocol;
-const host = codespaceName ? `${protocol}//${codespaceName}-8000.app.github.dev` : '';
-window.REACT_APP_CODESPACE_URL = host;
+
+// Ensure REACT_APP_CODESPACE_NAME is set from environment or fallback to window location
+if (!process.env.REACT_APP_CODESPACE_NAME) {
+  const match = window.location.hostname.match(/^(.*)-8000\.app\.github\.dev/);
+  if (match) {
+    process.env.REACT_APP_CODESPACE_NAME = match[1];
+  }
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

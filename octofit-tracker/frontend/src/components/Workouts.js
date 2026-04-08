@@ -2,7 +2,9 @@ import React, { useEffect, useState } from 'react';
 
 const Workouts = () => {
   const [workouts, setWorkouts] = useState([]);
-  const endpoint = `${window.REACT_APP_CODESPACE_URL}/api/workouts/`;
+  const codespace = process.env.REACT_APP_CODESPACE_NAME;
+  const protocol = window.location.protocol;
+  const endpoint = `${protocol}//${codespace}-8000.app.github.dev/api/workouts/`;
 
   useEffect(() => {
     console.log('Fetching workouts from:', endpoint);
