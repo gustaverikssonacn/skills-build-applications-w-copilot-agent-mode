@@ -8,6 +8,7 @@ import Teams from './components/Teams';
 import Users from './components/Users';
 import Workouts from './components/Workouts';
 import logo from './logo.svg';
+import octofitSmall from './octofitapp-small.svg';
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
       <nav className="navbar navbar-expand-lg navbar-light bg-light mb-4">
         <div className="container-fluid">
           <Link className="navbar-brand d-flex align-items-center" to="/">
-            <img src={logo} alt="Octofit Logo" className="octofit-logo me-2" style={{height: 40}} />
-            Octofit Tracker
+            <img src={octofitSmall} alt="Octofit Small Logo" className="octofitapp-small me-2" />
+            <span style={{fontWeight: 700, fontSize: '1.4rem', letterSpacing: '1px'}}>Octofit Tracker</span>
           </Link>
           <div className="collapse navbar-collapse">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
